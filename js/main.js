@@ -48,6 +48,78 @@
     items.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
+  /* Carrossel de avaliações: passa sozinho, pausa ao passar o mouse/tocar */
+  document.querySelectorAll('.reviews-carousel').forEach(function (carousel) {
+    var track = carousel.querySelector('.rv-track');
+    var cards = track.querySelectorAll('.rv-card');
+    var delay = parseInt(carousel.getAttribute('data-autoplay'), 10) || 5000;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timer = null, hovering = false, focused = false, inView = false;
+
+    function stepSize() {
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return cards[0].getBoundingClientRect().width + gap;
+    }
+    function go(dir) {
+      var max = track.scrollWidth - track.clientWidth;
+      if (dir > 0 && track.scrollLeft >= max - 4) track.scrollTo({ left: 0, behavior: 'smooth' });
+      else if (dir < 0 && track.scrollLeft <= 4) track.scrollTo({ left: max, behavior: 'smooth' });
+      else track.scrollBy({ left: dir * stepSize(), behavior: 'smooth' });
+    }
+    function stop() { clearInterval(timer); timer = null; }
+    function start() {
+      stop();
+      if (reduceMotion || hovering || focused || !inView || document.hidden) return;
+      timer = setInterval(function () { go(1); }, delay);
+    }
+
+    carousel.querySelector('.rv-prev').addEventListener('click', function () { go(-1); });
+    carousel.querySelector('.rv-next').addEventListener('click', function () { go(1); });
+    carousel.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hovering = true; stop(); } });
+    carousel.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { hovering = false; start(); } });
+    carousel.addEventListener('focusin', function () { focused = true; stop(); });
+    carousel.addEventListener('focusout', function (e) {
+      if (!carousel.contains(e.relatedTarget)) { focused = false; start(); }
+    });
+    track.addEventListener('touchstart', stop, { passive: true });
+    track.addEventListener('touchend', start, { passive: true });
+    document.addEventListener('visibilitychange', start);
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries[0].isIntersecting;
+        start();
+      }, { threshold: 0.25 }).observe(carousel);
+    } else {
+      inView = true;
+      start();
+    }
+
+    /* "Leia mais" só aparece quando o texto foi cortado */
+    function updateMore() {
+      cards.forEach(function (card) {
+        var text = card.querySelector('.rv-text');
+        var btn = card.querySelector('.rv-more');
+        btn.hidden = !card.classList.contains('is-open') && text.scrollHeight <= text.clientHeight + 2;
+      });
+    }
+    cards.forEach(function (card) {
+      var btn = card.querySelector('.rv-more');
+      btn.addEventListener('click', function () {
+        var open = card.classList.toggle('is-open');
+        btn.textContent = open ? 'Leia menos' : 'Leia mais';
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+    updateMore();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateMore);
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(updateMore, 150);
+    });
+  });
+
   /* Ano no rodapé */
   var ano = document.getElementById('ano');
   if (ano) ano.textContent = new Date().getFullYear();
