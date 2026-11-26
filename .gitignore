@@ -1,0 +1,11 @@
+# Materiais de referência que não devem ir para o repositório público
+# (cards dos médicos com fotos: aguardando versões em alta qualidade)
+assets/WhatsApp*
+
+# Configuração local do editor/preview
+.claude/
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
