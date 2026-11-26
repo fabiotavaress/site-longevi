@@ -714,3 +714,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   min-height: calc(100svh - var(--header-h) - 1px);
 }
 .section[id] > .container { width: 100%; }
+/* menos respiro no topo/base: o conteúdo começa logo abaixo do menu */
+.section[id] { padding-block: 56px; }
+@media (max-width: 640px) { .section[id] { padding-block: 44px; } }
