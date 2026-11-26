@@ -22,7 +22,7 @@ Seções, na ordem: hero · especialidades · avaliações · cinco motivos · c
 - **WhatsApp**: todos os botões usam `https://wa.me/5531983584644` com uma mensagem pronta diferente por especialidade. Para trocar o número, substituir `5531983584644` no `index.html`.
 - **Fotos dos médicos**: em cada card do corpo clínico há um comentário `FOTO:` mostrando onde entra a imagem. Salvar as fotos em `assets/img/equipe/`.
 - **Foto do hero**: o painel azul com o emblema (`.hero-panel`) é o lugar da foto da equipe/clínica.
-- **Avaliações**: os cards da seção `#avaliacoes` são cópias das avaliações 5 estrelas do Google (copiadas em 26/11/2026), com nome e inicial do sobrenome. Não atualizam sozinhos: para incluir uma nova, duplicar um `<article class="rv-card">`. O carrossel passa sozinho a cada 5 segundos (`data-autoplay`) e pausa quando o mouse está em cima.
+- **Avaliações**: os cards da seção `#avaliacoes` são cópias das avaliações 5 estrelas do Google (copiadas em 26/11/2026), com o nome completo como aparece no Google. Não atualizam sozinhos: para incluir uma nova, duplicar um `<article class="rv-card">`. O carrossel passa sozinho a cada 5 segundos (`data-autoplay`) e pausa quando o mouse está em cima.
 - **Publicar**: todo `push` na branch `main` atualiza o site em cerca de 1 minuto.
 
 ## Ver no computador
