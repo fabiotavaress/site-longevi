@@ -705,3 +705,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   .js .reveal { opacity: 1; translate: none; }
   .ecg { stroke-dashoffset: 0; opacity: .85; }
 }
+
+/* Ao clicar no menu, o conteúdo da seção aparece logo abaixo do cabeçalho,
+   sem o espaço em branco do padding superior (sobram ~40px de respiro) */
+.section[id] { scroll-margin-top: -72px; }
+@media (max-width: 980px) { .section[id] { scroll-margin-top: -48px; } }
+@media (max-width: 640px) { .section[id] { scroll-margin-top: -32px; } }
