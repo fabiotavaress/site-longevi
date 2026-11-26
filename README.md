@@ -38,6 +38,5 @@ Depois abrir http://localhost:5500
 - [ ] Fotos dos médicos e da clínica em alta qualidade
 - [ ] CRM do Dr. Luís Henrique
 - [ ] Diretor técnico (nome + CRM/RQE) no rodapé, exigido pelo CFM na publicidade de clínicas
-- [ ] Instagram
 - [ ] Confirmar "Apenas consultas particulares" e quais médicos atendem online
 - [ ] Domínio próprio (Settings → Pages → Custom domain) e atualizar as URLs do `<head>`

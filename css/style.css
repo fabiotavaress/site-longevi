@@ -552,6 +552,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .site-footer { background: var(--navy); color: rgba(255, 255, 255, .82); }
 .footer-inner { padding-block: 20px; font-size: 14px; text-align: center; }
 .footer-inner p { margin: 0; }
+.footer-inner a { color: #fff; }
+.contact-ig { margin-top: 10px; }
 
 /* ---------- WhatsApp flutuante ---------- */
 .wa-float { position: fixed; right: 22px; bottom: 22px; z-index: 70; display: flex; align-items: center; gap: 12px; text-decoration: none; }
