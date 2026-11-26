@@ -562,6 +562,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-inner p { margin: 0; }
 .footer-inner a { color: #fff; }
 .contact-ig { margin-top: 10px; }
+.contact-col .btn { width: 270px; max-width: 100%; } /* botões do contato com a mesma largura */
 
 /* ---------- WhatsApp flutuante ---------- */
 .wa-float { position: fixed; right: 22px; bottom: 22px; z-index: 70; display: flex; align-items: center; gap: 12px; text-decoration: none;
