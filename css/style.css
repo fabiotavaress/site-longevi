@@ -211,7 +211,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* indicadores das especialidades: mesma largura, no canto inferior direito do painel */
 .hero-chips {
-  position: absolute; right: calc(44px - var(--bleed)); bottom: 60px;
+  position: absolute; right: calc(28px - var(--bleed)); bottom: 28px;
   display: grid; gap: 10px;
 }
 .hero-chips li {
@@ -626,7 +626,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .stamp { left: 20px; bottom: 26px; width: 108px; height: 108px; }
   .stamp::before { inset: 27px; }
   .stamp-emblem { width: 28px; }
-  .hero-chips { right: 18px; bottom: 42px; }
+  .hero-chips { right: 18px; bottom: 22px; }
 
   .grid-3 { grid-template-columns: minmax(0, 1fr); max-width: 640px; margin-inline: auto; }
   .exam-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; }
