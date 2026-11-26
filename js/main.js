@@ -5,10 +5,13 @@
   var header = document.querySelector('.site-header');
   var toggle = document.querySelector('.menu-toggle');
   var nav = document.getElementById('menu');
+  var waFloat = document.querySelector('.wa-float');
 
   /* Sombra do cabeçalho ao rolar */
   function onScroll() {
     header.classList.toggle('is-scrolled', window.scrollY > 8);
+    /* botão do WhatsApp só aparece depois de rolar a página */
+    if (waFloat) waFloat.classList.toggle('is-visible', window.scrollY > 80);
   }
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });

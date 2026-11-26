@@ -40,7 +40,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-h) + 8px);
+  scroll-padding-top: calc(var(--header-h) + 1px); /* header + borda: a seção começa colada no menu */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -163,8 +163,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-grid {
   position: relative;
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: stretch;
-  min-height: 620px;
-  min-height: clamp(580px, calc(100svh - var(--header-h) - 52px), 720px);
+  min-height: calc(100vh - var(--header-h) - 1px);
+  min-height: calc(100svh - var(--header-h) - 1px); /* topo ocupa exatamente a tela */
 }
 .hero-text { align-self: center; max-width: 600px; margin-inline: auto; padding: 56px 0 72px; text-align: center; }
 .hero-kicker { margin-bottom: 26px; font-size: 15px; line-height: 1.6; color: var(--muted); }
@@ -556,7 +556,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .contact-ig { margin-top: 10px; }
 
 /* ---------- WhatsApp flutuante ---------- */
-.wa-float { position: fixed; right: 22px; bottom: 22px; z-index: 70; display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.wa-float { position: fixed; right: 22px; bottom: 22px; z-index: 70; display: flex; align-items: center; gap: 12px; text-decoration: none;
+  opacity: 0; visibility: hidden; transform: translateY(16px); transition: opacity .3s, transform .3s, visibility .3s; }
+.wa-float.is-visible { opacity: 1; visibility: visible; transform: none; }
 .wa-float-label {
   padding: 7px 12px; border-radius: 8px;
   background: #fff; box-shadow: 0 6px 20px rgba(0, 0, 0, .14);
