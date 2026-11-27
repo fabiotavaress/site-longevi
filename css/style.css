@@ -863,7 +863,7 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
 /* Capa no celular mais limpa: menos texto, mais respiro, foco no título e no botão */
 .sub-mobile { display: none; }
 @media (max-width: 640px) {
-  .kicker-specs, .sub-desktop { display: none; }
+  .sub-desktop { display: none; }
   .sub-mobile { display: inline; }
   .hero-text { padding: 34px 0 30px; }
   .hero-kicker { margin-bottom: 18px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); opacity: .85; }
@@ -875,4 +875,11 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
   .hero-text { padding: 24px 0 22px; }
   .hero-kicker { margin-bottom: 12px; }
   .hero-sub { margin: 12px auto 20px; }
+}
+
+/* especialidades em dourado também no celular, logo abaixo da identificação */
+@media (max-width: 640px) {
+  .hero-kicker .kicker-specs span { display: inline-block; margin-top: 6px; font-size: 13px; font-weight: 700; letter-spacing: .02em; text-transform: none; color: var(--gold-700); opacity: 1; }
+  .hero-kicker { opacity: 1; }
+  .hero-kicker { color: rgba(103, 112, 133, .85); }
 }
