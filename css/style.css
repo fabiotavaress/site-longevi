@@ -893,3 +893,20 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
   }
   .hero-visual { min-height: 0; }
 }
+
+/* Celular: no Safari a barra inferior é transparente e deixava ver a próxima seção.
+   A capa vai até o fim da tela "grande" (lvh, atrás da barra), e o conteúdo azul
+   fica centralizado na parte visível. */
+@media (max-width: 640px) {
+  .hero-grid {
+    min-height: calc(100lvh - var(--header-h) - 1px);
+  }
+  .hero-panel { padding-bottom: calc(18px + (100lvh - 100svh) + env(safe-area-inset-bottom)); }
+}
+@supports not (height: 100lvh) {
+  @media (max-width: 640px) { .hero-panel { padding-bottom: calc(18px + env(safe-area-inset-bottom)); } }
+}
+
+/* Botão do menu: sem o quadrado em volta enquanto está no topo (capa); volta ao rolar */
+.menu-toggle { transition: background-color .3s, border-color .3s; }
+.site-header:not(.is-scrolled) .menu-toggle[aria-expanded="false"] { background: transparent; border-color: transparent; }
