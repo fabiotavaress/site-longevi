@@ -810,3 +810,4 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
 
 /* Números dos cards (01., 02.…): fonte do site, reta e com números alinhados */
 .num { font: 700 17px/1 var(--font); font-style: normal; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+.num { font-size: 20px; }
