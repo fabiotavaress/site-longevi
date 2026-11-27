@@ -718,3 +718,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* menos respiro no topo/base: o conteúdo começa logo abaixo do menu */
 .section[id] { padding-block: 56px; }
 @media (max-width: 640px) { .section[id] { padding-block: 44px; } }
+
+/* Especialidades: foto de fundo (Unsplash) com véu creme para manter o visual claro */
+#especialidades {
+  background:
+    linear-gradient(180deg, rgba(248, 245, 239, .9) 0%, rgba(248, 245, 239, .78) 50%, rgba(248, 245, 239, .9) 100%),
+    url("../assets/img/fundo-especialidades.jpg") center / cover no-repeat;
+}
