@@ -915,8 +915,11 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
    barra do Safari, + a área segura da barrinha de gestos); o conteúdo azul fica centralizado
    na parte visível. */
 @media (max-width: 640px) {
-  .hero-grid { min-height: calc(100lvh - var(--header-h) - 1px + env(safe-area-inset-bottom)); }
-  .hero-panel { padding-bottom: calc(18px + (100lvh - 100svh) + env(safe-area-inset-bottom)); }
+  /* como no site do loteamento: o Safari mostra a página abaixo da tela "grande" (atrás da barra
+     flutuante e da barrinha de gestos), então a capa passa 90px além; o conteúdo azul continua
+     centralizado na parte visível */
+  .hero-grid { min-height: calc(100lvh - var(--header-h) - 1px + 90px); }
+  .hero-panel { padding-bottom: calc(18px + 90px + (100lvh - 100svh)); }
 }
 
 /* iPhone (Safari 26): sem elemento fixo na borda de baixo, o Safari pinta a área atrás da barra
