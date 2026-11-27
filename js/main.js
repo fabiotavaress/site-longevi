@@ -201,3 +201,18 @@
     wa.classList.toggle('at-footer', entries[0].isIntersecting);
   }).observe(footer);
 })();
+
+/* iPhone: marca quando a capa está cobrindo a parte de baixo da tela (o CSS deixa o fundo do
+   <html> azul nesse momento, para o Safari pintar atrás da barra inferior). */
+(function () {
+  'use strict';
+  var hero = document.querySelector('.hero');
+  var root = document.documentElement;
+  if (!hero) { root.classList.remove('on-capa'); return; }
+  function update() {
+    root.classList.toggle('on-capa', hero.getBoundingClientRect().bottom >= window.innerHeight - 2);
+  }
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+})();
