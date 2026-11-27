@@ -201,3 +201,32 @@
     wa.classList.toggle('at-footer', entries[0].isIntersecting);
   }).observe(footer);
 })();
+
+/* iPhone (Safari 26): mantém a faixa azul de baixo só enquanto a capa cobre a borda inferior
+   da tela; fora da capa ela sai e a barra do Safari volta ao normal. Ao voltar para a capa,
+   entra uma faixa nova (o Safari relê a cor quando o elemento aparece). */
+(function () {
+  'use strict';
+  var isIOS = window.CSS && CSS.supports && CSS.supports('-webkit-touch-callout', 'none');
+  var hero = document.querySelector('.hero');
+  var strip = document.querySelector('.safari-tint');
+  if (!hero || !strip) return;
+  if (!isIOS) { strip.remove(); return; }
+  var mq = window.matchMedia('(max-width: 980px)');
+  var parent = strip.parentNode;
+  var inDom = true;
+  function update() {
+    var show = mq.matches && hero.getBoundingClientRect().bottom >= window.innerHeight - 1;
+    if (show && !inDom) {
+      strip = strip.cloneNode(false);
+      parent.appendChild(strip);
+      inDom = true;
+    } else if (!show && inDom) {
+      strip.remove();
+      inDom = false;
+    }
+  }
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+})();

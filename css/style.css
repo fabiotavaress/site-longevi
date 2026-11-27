@@ -918,3 +918,17 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
   .hero-grid { min-height: calc(100lvh - var(--header-h) - 1px + 120px); }
   .hero-panel { padding-bottom: calc(18px + 120px + (100lvh - 100svh) + env(safe-area-inset-bottom)); }
 }
+
+/* iPhone (Safari 26): a barra de baixo do Safari copia a cor de um elemento fixo encostado
+   na borda inferior; sem nenhum, usa o fundo da página (branco) e fica "branco fosco".
+   Esta faixa de 3px (azul do fim da capa) existe só no iOS, só no celular/tablet e só
+   enquanto a capa cobre a parte de baixo da tela (o script tira ao rolar). */
+.safari-tint { display: none; }
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 980px) {
+    .safari-tint {
+      display: block; position: fixed; left: 0; right: 0; bottom: 0; height: 3px;
+      background-color: #000f3d; z-index: 2147483000; pointer-events: none;
+    }
+  }
+}
