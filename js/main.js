@@ -127,3 +127,67 @@
   var ano = document.getElementById('ano');
   if (ano) ano.textContent = new Date().getFullYear();
 })();
+
+/* Avaliações (widget Trustindex): mantém o carrossel passando sozinho.
+   No celular o widget pausa de vez quando a pessoa toca nele (e só volta se tocar fora),
+   para quando a pessoa arrasta, não passa com "reduzir movimento" ligado e, no fim da
+   lista, não volta ao começo. Aqui o próprio site passa as avaliações a cada 6 s:
+   pausa enquanto a pessoa mexe (e 8 s depois), com o mouse em cima no computador,
+   fora da tela ou com a aba escondida; no fim, volta para a primeira. */
+(function () {
+  'use strict';
+  var box = document.querySelector('.reviews-widget');
+  if (!box || !('MutationObserver' in window)) return;
+  var canHover = window.matchMedia('(hover: hover)').matches;
+  var started = false;
+
+  function start(el, slider) {
+    if (started) return;
+    started = true;
+    var seconds = parseInt(el.getAttribute('data-pager-autoplay-timeout'), 10) || 6;
+    var lastTouch = 0, touching = false;
+    function stopOwnAutoplay() {
+      if (slider.autoPlayInterval) { clearInterval(slider.autoPlayInterval); delete slider.autoPlayInterval; }
+    }
+    stopOwnAutoplay();
+    el.addEventListener('touchstart', function () { touching = true; lastTouch = Date.now(); }, { passive: true });
+    ['touchend', 'touchcancel'].forEach(function (type) {
+      el.addEventListener(type, function () { touching = false; lastTouch = Date.now(); }, { passive: true });
+    });
+    el.addEventListener('click', function () { lastTouch = Date.now(); });
+
+    setInterval(function () {
+      try {
+        stopOwnAutoplay();
+        if (document.hidden || touching || Date.now() - lastTouch < 8000) return;
+        if (canHover && slider.isMouseOver) return;
+        var r = el.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return;
+        slider.isMouseOver = false;
+        var max = typeof slider.getMaximumState === 'function' ? slider.getMaximumState() : Infinity;
+        slider.move(!slider.isLoop && slider.state >= max ? 0 : 'next', 'auto', 800);
+      } catch (e) { /* widget mudou: deixa como está */ }
+    }, seconds * 1000);
+  }
+
+  function find() {
+    var el = box.querySelector('.ti-widget');
+    if (el && el.TrustindexSliderWidget && typeof el.TrustindexSliderWidget.move === 'function') {
+      start(el, el.TrustindexSliderWidget);
+      return true;
+    }
+    return false;
+  }
+
+  if (find()) return;
+  var tries = 0, poll = null;
+  var mo = new MutationObserver(function () {
+    if (find()) { mo.disconnect(); return; }
+    if (!poll && box.querySelector('.ti-widget')) {
+      poll = setInterval(function () {
+        if (find() || ++tries > 40) { clearInterval(poll); mo.disconnect(); }
+      }, 250);
+    }
+  });
+  mo.observe(box, { childList: true, subtree: true });
+})();
