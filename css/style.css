@@ -694,7 +694,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .contact-address, .contact-hours { justify-content: center; text-align: left; }
   .map { height: 320px; }
 
-  .footer-inner { padding-bottom: 96px; }
+  .footer-inner { padding-block: 18px 20px; }
   .wa-float { right: 16px; bottom: 16px; }
   .wa-float-label { display: none; }
 }
@@ -799,3 +799,7 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
    o navegador volta para a posição antiga com o widget ainda vazio e a tela "anda" para frente. */
 .reviews-widget { min-height: 350px; }
 @media (max-width: 640px) { .reviews-widget { min-height: 413px; } }
+
+/* Botão flutuante some quando o rodapé aparece (o contato logo acima já tem os botões),
+   assim o rodapé pode ser fino no celular sem ficar coberto */
+.wa-float.is-visible.at-footer { opacity: 0; visibility: hidden; transform: translateY(16px); }

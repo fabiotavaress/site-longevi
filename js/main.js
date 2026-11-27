@@ -191,3 +191,13 @@
   });
   mo.observe(box, { childList: true, subtree: true });
 })();
+
+/* Esconde o WhatsApp flutuante quando o rodapé está na tela */
+(function () {
+  var wa = document.querySelector('.wa-float');
+  var footer = document.querySelector('.site-footer');
+  if (!wa || !footer || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (entries) {
+    wa.classList.toggle('at-footer', entries[0].isIntersecting);
+  }).observe(footer);
+})();
