@@ -807,3 +807,6 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
 /* Botões do contato: ícone e texto começando na mesma linha em todos os botões */
 .contact-col .btn { justify-content: flex-start; padding-left: 40px; padding-right: 24px; }
 .contact-col .btn .icon { width: 22px; height: 22px; }
+
+/* Números dos cards (01., 02.…): fonte do site, reta e com números alinhados */
+.num { font: 700 17px/1 var(--font); font-style: normal; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
