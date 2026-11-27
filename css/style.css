@@ -183,9 +183,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 0 0 90px 70px; /* emblema centralizado na área azul inteira */
   overflow: hidden;
-  /* a base do painel termina no mesmo azul da seção seguinte, para emendar sem faixa */
   background:
-    linear-gradient(180deg, rgba(0, 34, 126, 0) 72%, var(--navy) 100%),
     radial-gradient(120% 80% at 60% 15%, #0b3bb0 0%, var(--navy) 45%, var(--navy-900) 100%);
   clip-path: polygon(88px 0, 100% 0, 100% 100%, 0 100%);
 }
