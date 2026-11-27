@@ -910,3 +910,11 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
 /* Botão do menu: sem o quadrado em volta enquanto está no topo (capa); volta ao rolar */
 .menu-toggle { transition: background-color .3s, border-color .3s; }
 .site-header:not(.is-scrolled) .menu-toggle[aria-expanded="false"] { background: transparent; border-color: transparent; }
+
+/* iPhone: o Safari ainda mostrava uma faixa clara atrás da barra inferior.
+   A área azul da capa passa 120px além do fim da tela; o conteúdo continua centralizado
+   na parte visível (só se vê esse azul extra ao rolar). */
+@media (max-width: 640px) {
+  .hero-grid { min-height: calc(100lvh - var(--header-h) - 1px + 120px); }
+  .hero-panel { padding-bottom: calc(18px + 120px + (100lvh - 100svh) + env(safe-area-inset-bottom)); }
+}
