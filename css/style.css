@@ -710,7 +710,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Cada seção ocupa no mínimo uma tela (abaixo do cabeçalho), com o conteúdo
    centralizado: ao clicar no menu, aparece só aquela seção, sem pedaço da próxima */
-.section[id] {
+/* só as seções do menu ocupam a tela inteira */
+:is(#especialidades, #exames, #como-funciona, #corpo-clinico, #contato).section {
   display: flex; flex-direction: column; justify-content: center;
   min-height: calc(100vh - var(--header-h) - 1px);
   min-height: calc(100svh - var(--header-h) - 1px);
