@@ -926,9 +926,9 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
    inferior com a cor de fundo do <html>, que era transparente (= branco) e virava o "branco fosco".
    Enquanto a capa ocupa a parte de baixo da tela, o <html> fica no azul do fim da capa; o <body>
    continua branco, então nada muda no conteúdo. Fora da capa volta a branco. Só iOS e celular/tablet. */
-@supports (-webkit-touch-callout: none) {
-  @media (max-width: 980px) {
-    html { background-color: #fff; }
-    html.on-capa { background-color: #00185f; }
-  }
+@media (max-width: 980px) {
+  /* como no site do loteamento: html e body ficam azuis enquanto a capa está na tela
+     (o Safari do iOS 26 usa a cor do body no efeito de vidro das barras) */
+  html { background-color: #fff; }
+  html.on-capa, html.on-capa body { background-color: #00185f; }
 }
