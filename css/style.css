@@ -803,3 +803,7 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
 /* Botão flutuante some quando o rodapé aparece (o contato logo acima já tem os botões),
    assim o rodapé pode ser fino no celular sem ficar coberto */
 .wa-float.is-visible.at-footer { opacity: 0; visibility: hidden; transform: translateY(16px); }
+
+/* Botões do contato: ícone e texto começando na mesma linha em todos os botões */
+.contact-col .btn { justify-content: flex-start; padding-left: 40px; padding-right: 24px; }
+.contact-col .btn .icon { width: 22px; height: 22px; }
