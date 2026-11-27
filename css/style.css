@@ -782,3 +782,15 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
 .footer-credit { font-size: 13.5px; color: rgba(255, 255, 255, .72); }
 .footer-credit a { color: #fff; font-weight: 700; text-decoration: none; }
 .footer-credit a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Especialidades no celular: a seção é bem alta (cards empilhados) e a foto "cover" ficava
+   ampliada demais e estourada. No celular a foto ocupa só o topo, em tamanho nítido,
+   e se funde no creme para baixo. */
+@media (max-width: 640px) {
+  #especialidades {
+    background:
+      linear-gradient(180deg, rgba(248, 245, 239, .8) 0, rgba(248, 245, 239, .88) 300px, var(--cream) 460px),
+      url("../assets/img/fundo-especialidades.jpg?v=2") center top / auto 460px no-repeat,
+      var(--cream);
+  }
+}
