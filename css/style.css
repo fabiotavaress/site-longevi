@@ -859,3 +859,20 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
   .hero-emblem { height: clamp(84px, 15svh, 120px); }
   .hero-panel-tag { margin-top: 10px; }
 }
+
+/* Capa no celular mais limpa: menos texto, mais respiro, foco no título e no botão */
+.sub-mobile { display: none; }
+@media (max-width: 640px) {
+  .kicker-specs, .sub-desktop { display: none; }
+  .sub-mobile { display: inline; }
+  .hero-text { padding: 34px 0 30px; }
+  .hero-kicker { margin-bottom: 18px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); opacity: .85; }
+  .hero h1 { line-height: 1.14; }
+  .hero-sub { max-width: 300px; margin: 16px auto 28px; }
+  .hero .fineprint { margin-top: 12px; font-size: 12px; opacity: .8; }
+}
+@media (max-width: 640px) and (max-height: 700px) {
+  .hero-text { padding: 24px 0 22px; }
+  .hero-kicker { margin-bottom: 12px; }
+  .hero-sub { margin: 12px auto 20px; }
+}
