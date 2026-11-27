@@ -131,7 +131,7 @@
 /* Avaliações (widget Trustindex): mantém o carrossel passando sozinho.
    No celular o widget pausa de vez quando a pessoa toca nele (e só volta se tocar fora),
    para quando a pessoa arrasta, não passa com "reduzir movimento" ligado e, no fim da
-   lista, não volta ao começo. Aqui o próprio site passa as avaliações a cada 6 s:
+   lista, não volta ao começo. Aqui o próprio site passa as avaliações a cada 4 s:
    pausa enquanto a pessoa mexe (e 8 s depois), com o mouse em cima no computador,
    fora da tela ou com a aba escondida; no fim, volta para a primeira. */
 (function () {
@@ -144,7 +144,7 @@
   function start(el, slider) {
     if (started) return;
     started = true;
-    var seconds = parseInt(el.getAttribute('data-pager-autoplay-timeout'), 10) || 6;
+    var seconds = 4; // tempo entre uma avaliação e outra
     var lastTouch = 0, touching = false;
     function stopOwnAutoplay() {
       if (slider.autoPlayInterval) { clearInterval(slider.autoPlayInterval); delete slider.autoPlayInterval; }
