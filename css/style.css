@@ -723,5 +723,5 @@ ul { margin: 0; padding: 0; list-style: none; }
 #especialidades {
   background:
     linear-gradient(180deg, rgba(248, 245, 239, .9) 0%, rgba(248, 245, 239, .78) 50%, rgba(248, 245, 239, .9) 100%),
-    url("../assets/img/fundo-especialidades.jpg") center / cover no-repeat;
+    url("../assets/img/fundo-especialidades.jpg?v=2") center / cover no-repeat;
 }
