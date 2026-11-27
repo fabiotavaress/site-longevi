@@ -883,3 +883,10 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
   .hero-kicker { opacity: 1; }
   .hero-kicker { color: rgba(103, 112, 133, .85); }
 }
+
+/* Capa: especialidades no painel azul sem a "pílula" branca em volta, mais discretas */
+.hero-chips li {
+  background: transparent; box-shadow: none; padding: 4px 0;
+  color: rgba(255, 255, 255, .9); font-weight: 600;
+}
+.hero-chips .icon { background: rgba(255, 255, 255, .1); color: var(--gold-300); }
