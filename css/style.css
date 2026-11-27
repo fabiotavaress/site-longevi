@@ -725,3 +725,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     linear-gradient(180deg, rgba(248, 245, 239, .9) 0%, rgba(248, 245, 239, .78) 50%, rgba(248, 245, 239, .9) 100%),
     url("../assets/img/fundo-especialidades.jpg?v=2") center / cover no-repeat;
 }
+
+/* Contato: títulos "Agendamento" e "Endereço" alinhados pelo topo; logo continua centralizada */
+.contact-grid { align-items: start; }
+.contact-brand { align-self: center; }
