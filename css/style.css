@@ -776,3 +776,9 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
   .wa-float-btn { width: 54px; height: 54px; }
   .wa-float-btn .icon { width: 28px; height: 28px; }
 }
+
+/* Rodapé: crédito do desenvolvedor */
+.footer-inner p + p { margin-top: 6px; }
+.footer-credit { font-size: 13.5px; color: rgba(255, 255, 255, .72); }
+.footer-credit a { color: #fff; font-weight: 700; text-decoration: none; }
+.footer-credit a:hover { text-decoration: underline; text-underline-offset: 3px; }
