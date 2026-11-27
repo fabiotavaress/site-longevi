@@ -884,13 +884,6 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
   .hero-kicker { color: rgba(103, 112, 133, .85); }
 }
 
-/* Capa: especialidades no painel azul sem a "pílula" branca em volta, mais discretas */
-.hero-chips li {
-  background: transparent; box-shadow: none; padding: 4px 0;
-  color: rgba(255, 255, 255, .9); font-weight: 600;
-}
-.hero-chips .icon { background: rgba(255, 255, 255, .1); color: var(--gold-300); }
-
 /* Tablet (641–980px): a capa também ocupa a tela inteira ao entrar */
 @media (min-width: 641px) and (max-width: 980px) {
   .hero-grid {
