@@ -794,3 +794,8 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
       var(--cream);
   }
 }
+
+/* Reserva o espaço do widget de avaliações antes dele carregar: sem isso, ao recarregar a página
+   o navegador volta para a posição antiga com o widget ainda vazio e a tela "anda" para frente. */
+.reviews-widget { min-height: 350px; }
+@media (max-width: 640px) { .reviews-widget { min-height: 413px; } }
