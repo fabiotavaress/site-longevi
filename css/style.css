@@ -932,3 +932,9 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
   html { background-color: #fff; }
   html.on-capa, html.on-capa body { background-color: #00185f; }
 }
+
+/* Celular: cabeçalho branco sólido (o fundo azul da capa aparecia através dele e o Safari
+   pintava a barra do relógio de azul; com ele opaco, o Safari usa o branco do cabeçalho) */
+@media (max-width: 980px) {
+  .site-header { background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
