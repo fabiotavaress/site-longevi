@@ -729,3 +729,50 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Contato: títulos "Agendamento" e "Endereço" alinhados pelo topo; logo continua centralizada */
 .contact-grid { align-items: start; }
 .contact-brand { align-self: center; }
+
+/* =========================================================
+   Acabamento para celular
+   ========================================================= */
+a, button, summary { -webkit-tap-highlight-color: transparent; }
+.nav-cta { display: none; }
+.pillars-foot, .pillars-head strong, .media-title, .quote, .eyebrow { text-wrap: balance; }
+
+@media (max-width: 1100px) {
+  /* botão de agendar dentro do menu aberto */
+  .main-nav a.nav-cta {
+    display: flex; margin-top: 16px; padding: 14px 24px; min-height: 54px;
+    border: 0; border-radius: 999px; font-size: 15px; color: #fff; opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  /* topo: selo sobre a borda inclinada, sem faixa azul vazia embaixo */
+  .hero-visual { min-height: 360px; }
+  .hero-panel { padding: 44px 0 40px; }
+  .stamp { top: 4px; bottom: auto; left: 18px; }
+
+  /* textos */
+  .split-text > p { font-size: 16px; }
+  .eyebrow { font-size: 12px; letter-spacing: .12em; }
+  .eyebrow-left::before { display: none; }
+  .chips-title { letter-spacing: .1em; }
+
+  /* áreas de toque com pelo menos 44px */
+  .link-arrow { min-height: 44px; margin-top: 4px; }
+  .reviews-foot a { min-height: 44px; }
+  .footer-inner a { display: inline-block; padding: 10px 0; }
+
+  /* 6 pilares em duas colunas, mais compactos */
+  .pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .pillars li { flex-direction: column; justify-content: center; gap: 8px; padding: 16px 10px; text-align: center; font-size: 14px; }
+
+  /* foto dos médicos mais baixa no celular */
+  .doctor-photo { aspect-ratio: 16 / 9; }
+
+  /* no celular o Google mostra só um botão pequeno no mapa: sem recorte, o pino fica no centro */
+  .map iframe { top: 0; height: 100%; }
+
+  /* WhatsApp flutuante um pouco menor */
+  .wa-float-btn { width: 54px; height: 54px; }
+  .wa-float-btn .icon { width: 28px; height: 28px; }
+}
