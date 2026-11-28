@@ -938,3 +938,9 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 980px) {
   .site-header { background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
+
+/* Celular: o brilho verde grande do botão do WhatsApp era cortado pelo Safari e formava
+   uma linha embaixo dele; no celular fica só uma sombra curta e discreta */
+@media (max-width: 640px) {
+  .wa-float-btn { box-shadow: 0 3px 10px rgba(0, 0, 0, .18); }
+}
