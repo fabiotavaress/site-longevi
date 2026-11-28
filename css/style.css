@@ -975,3 +975,16 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
   .hero-visual { height: calc(34svh + 90px + (100lvh - 100svh)); }
   .hero-emblem { height: clamp(64px, 11svh, 92px); }
 }
+
+/* Capa mobile – espaçamentos: texto logo abaixo do cabeçalho, azul começa perto do botão
+   e preenche o resto da tela (sem espaço vazio e sem mostrar a próxima seção). */
+@media (max-width: 640px) {
+  .hero-grid { grid-template-rows: auto 1fr; }
+  .hero-text { align-self: start; padding: 28px 0 34px; }
+  .hero-visual { height: auto; min-height: 240px; }
+}
+@media (max-width: 640px) and (max-height: 700px) {
+  .hero-grid { grid-template-rows: auto 1fr; }
+  .hero-text { padding: 18px 0 26px; }
+  .hero-visual { height: auto; min-height: 190px; }
+}
